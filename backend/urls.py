@@ -14,8 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, re_path
+from data.views import FrontendAppView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+	.... other urlpatterns.....
+	# have it as the last urlpattern for BrowserHistory urls to work
+    re_path(r'^', views.FrontendAppView.as_view()),
 ]
