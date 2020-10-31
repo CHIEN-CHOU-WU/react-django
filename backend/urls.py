@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from data.views import FrontendAppView
+from digits.views import FrontendAppView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	.... other urlpatterns.....
-	# have it as the last urlpattern for BrowserHistory urls to work
-    re_path(r'^', views.FrontendAppView.as_view()),
+    # have it as the last urlpattern for BrowserHistory urls to work
+    re_path(r'^', FrontendAppView.as_view()),
 ]
