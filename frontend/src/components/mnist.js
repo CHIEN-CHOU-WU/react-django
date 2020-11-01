@@ -1,6 +1,6 @@
 import React, { Component, useRef, useEffect, nativeEvent, useState} from 'react';
 import { saveAs } from 'file-saver';
-import { Button } from 'react-bootstrap';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 
 function Mnist() {
     const canvasRef = useRef(null)
@@ -67,19 +67,21 @@ function Mnist() {
 
     return (
         <React.Fragment>
-            <div>
-                <br></br>
-                <canvas
-                onMouseDown={startDrawing}
-                onMouseUp={finishDrawing}
-                onMouseMove={draw}
-                ref={canvasRef}
-                />
-            </div>
-            <div>
-                <Button onClick={handleSubmit} variant='primary'>Save</Button>
-                <Button onClick={handleReset} variant='seccondary'>Reset</Button>
-            </div>
+            <Container>
+                <div>
+                    <br></br>
+                    <canvas
+                    onMouseDown={startDrawing}
+                    onMouseUp={finishDrawing}
+                    onMouseMove={draw}
+                    ref={canvasRef}
+                    />
+                </div>
+                <div>
+                    <Button onClick={handleSubmit} variant='primary'>Save</Button>
+                    <Button onClick={handleReset} variant='secondary'>Reset</Button>
+                </div>
+            </Container>
         </React.Fragment>
     );
 }

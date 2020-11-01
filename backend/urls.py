@@ -20,5 +20,7 @@ from digits.views import FrontendAppView
 urlpatterns = [
     path('admin/', admin.site.urls),
     # have it as the last urlpattern for BrowserHistory urls to work
-    re_path(r'^', FrontendAppView.as_view()),
+    path('', FrontendAppView.as_view()),
+    path('api/', include('digits.api.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
