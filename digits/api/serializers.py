@@ -5,4 +5,4 @@ from ..models import Digits
 class DigitsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Digits
-        fields = {'id', 'image', 'result'}
+        fields = ('id', 'image', 'result')

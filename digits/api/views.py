@@ -4,5 +4,5 @@ from .serializers import DigitsSerializer
 
 
 class Digits_View(viewsets.ModelViewSet):
-    serializer_calss = DigitsSerializer
+    serializer_class = DigitsSerializer
     queryset = Digits.objects.all()
