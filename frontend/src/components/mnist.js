@@ -1,16 +1,37 @@
 import React, { Component, useRef, useEffect, nativeEvent, useState} from 'react';
 import { saveAs } from 'file-saver';
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Button, Container, Row, Col, Alert } from 'react-bootstrap';
+import axios from 'axios';
 
 function Mnist() {
     const canvasRef = useRef(null)
     const contextRef = useRef(null)
     const [isDrawing, setIsDrawing] = useState(false)
+    const [send, setSend] = useState(false)
 
     const handleSubmit = () => {
         const canv = canvasRef.current.toDataURL()
-        saveAs(canv, 'digit.jpg')
+        //saveAs(canv, 'digit.jpg')
+        sendData(canv)
     }
+
+    const sendData = (c) => {
+        console.log(c)
+        const headers = {
+            "accept": 'application/json'
+        }
+
+        const fd = new FormData()
+        fd.append('image', c)
+
+        axios.post('http://127.0.0.1:8000/api/digits/', fd, {headers:headers})
+        .then(res=>{
+            console.log(res.data)
+            setSend(true)
+        })
+        .catch(err=>console.log(err))
+    }
+
 
     const handleReset = () => {
         const canvas = canvasRef.current;
@@ -67,6 +88,7 @@ function Mnist() {
 
     return (
         <React.Fragment>
+        {send && <Alert variant="info">Succesfully send to classification</Alert>}
             <Container>
                 <div>
                     <br></br>
@@ -78,7 +100,7 @@ function Mnist() {
                     />
                 </div>
                 <div>
-                    <Button onClick={handleSubmit} variant='primary'>Save</Button>
+                    <Button onClick={handleSubmit} variant='primary'>Send</Button>
                     <Button onClick={handleReset} variant='secondary'>Reset</Button>
                 </div>
             </Container>
