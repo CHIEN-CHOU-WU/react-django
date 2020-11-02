@@ -11,11 +11,12 @@ function Mnist() {
 
     const handleSubmit = () => {
         const canv = canvasRef.current.toDataURL()
+        const canv_url = canvasRef.current.baseURI
         //saveAs(canv, 'digit.jpg')
-        sendData(canv)
+        sendData(canv, canv_url)
     }
 
-    const sendData = (c) => {
+    const sendData = (c, c_url) => {
         console.log(c)
         const headers = {
             "accept": 'application/json'
@@ -24,12 +25,21 @@ function Mnist() {
         const fd = new FormData()
         fd.append('image', c)
 
-        axios.post('http://127.0.0.1:8000/api/digits/', fd, {headers:headers})
-        .then(res=>{
-            console.log(res.data)
-            setSend(true)
-        })
-        .catch(err=>console.log(err))
+        if (c_url == "http://127.0.0.1:8000/mnist" || c_url == "http://localhost:3000/mnist"){
+            axios.post('http://127.0.0.1:8000/api/digits/', fd, {headers:headers})
+            .then(res=>{
+                console.log(res.data)
+                setSend(true)
+            })
+            .catch(err=>console.log(err))
+        } else if (c_url == "https://react-django-wu.herokuapp.com/mnist") {
+            axios.post('https://react-django-wu.herokuapp.com/api/digits/', fd, {headers:headers})
+            .then(res=>{
+                console.log(res.data)
+                setSend(true)
+            })
+            .catch(err=>console.log(err))
+        }
     }
 
 
