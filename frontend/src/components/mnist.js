@@ -39,6 +39,7 @@ function Mnist() {
             .then(res=>{
                 console.log(res.data)
                 setSend(true)
+                getImageResult(res.data.id)
             })
             .catch(err=>console.log(err))
         }
