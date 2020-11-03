@@ -8,6 +8,7 @@ function Mnist() {
     const contextRef = useRef(null)
     const [isDrawing, setIsDrawing] = useState(false)
     const [send, setSend] = useState(false)
+    const [result, setResult] = useState()
 
     const handleSubmit = () => {
         const canv = canvasRef.current.toDataURL()
@@ -30,6 +31,7 @@ function Mnist() {
             .then(res=>{
                 console.log(res.data)
                 setSend(true)
+                getImageResult(res.data.id)
             })
             .catch(err=>console.log(err))
         } else if (c_url == "https://react-django-wu.herokuapp.com/mnist") {
@@ -39,6 +41,22 @@ function Mnist() {
                 setSend(true)
             })
             .catch(err=>console.log(err))
+        }
+    }
+
+    const getImageResult = (id) => {
+        const c_url = canvasRef.current.baseURI
+        console.log('2222222222222', c_url)
+        if (c_url == "http://127.0.0.1:8000/mnist" || c_url == "http://localhost:3000/mnist"){
+            axios.get(`http://127.0.0.1:8000/api/digits/${id}/`)
+            .then(res=>
+                setResult(res.data.result)
+            )
+        } else if (c_url == "https://react-django-wu.herokuapp.com/mnist") {
+            axios.get(`https://react-django-wu.herokuapp.com/api/digits/${id}/`)
+            .then(res=>
+                setResult(res.data.result)
+            )
         }
     }
 
@@ -57,6 +75,8 @@ function Mnist() {
         context.fillRect(0, 0, canvas.width, canvas.height);
         context.lineWidth = 5
         contextRef.current = context;
+        setSend(false)
+        setResult(false)
     }
 
     useEffect(() => {
@@ -98,7 +118,7 @@ function Mnist() {
 
     return (
         <React.Fragment>
-        {send && <Alert variant="info">Succesfully send to classification</Alert>}
+        {send && <Alert variant="info">Succesfully submitted</Alert>}
             <Container>
                 <div>
                     <br></br>
@@ -113,7 +133,11 @@ function Mnist() {
                     <Button onClick={handleSubmit} variant='primary'>Send</Button>
                     <Button onClick={handleReset} variant='secondary'>Reset</Button>
                 </div>
-            </Container>
+                <div>
+                    <br></br>
+                    {result && <div> Your result is {result} </div>}
+                </div>
+                </Container>
         </React.Fragment>
     );
 }
