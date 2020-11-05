@@ -27,7 +27,7 @@ function Mnist() {
         fd.append('image', c)
 
         if (c_url == "http://127.0.0.1:8000/mnist" || c_url == "http://localhost:3000/mnist"){
-            axios.post('http://127.0.0.1:8000/api/digits/', fd, {headers:headers})
+            axios.post('http://127.0.0.1:8000/api/digits/create', fd, {headers:headers})
             .then(res=>{
                 console.log(res.data)
                 setSend(true)
@@ -35,7 +35,7 @@ function Mnist() {
             })
             .catch(err=>console.log(err))
         } else if (c_url == "https://react-django-wu.herokuapp.com/mnist") {
-            axios.post('https://react-django-wu.herokuapp.com/api/digits/', fd, {headers:headers})
+            axios.post('https://react-django-wu.herokuapp.com/api/digits/create', fd, {headers:headers})
             .then(res=>{
                 console.log(res.data)
                 setSend(true)
@@ -47,7 +47,6 @@ function Mnist() {
 
     const getImageResult = (id) => {
         const c_url = canvasRef.current.baseURI
-        console.log('2222222222222', c_url)
         if (c_url == "http://127.0.0.1:8000/mnist" || c_url == "http://localhost:3000/mnist"){
             axios.get(`http://127.0.0.1:8000/api/digits/${id}/`)
             .then(res=>
@@ -78,6 +77,9 @@ function Mnist() {
         contextRef.current = context;
         setSend(false)
         setResult(false)
+        const canv = canvasRef.current.toDataURL()
+        const canv_url = canvasRef.current.baseURI
+        //saveAs(canv, 'digit.jpg')
     }
 
     useEffect(() => {
@@ -123,6 +125,9 @@ function Mnist() {
             <Container>
                 <div>
                     <br></br>
+                    <h1>Let's see what you write!</h1>
+                    <br></br>
+                    <p>Please write down one of the numbers from 0 to 9 in the box and press send at the bottom.</p>
                     <canvas
                     onMouseDown={startDrawing}
                     onMouseUp={finishDrawing}
@@ -136,7 +141,8 @@ function Mnist() {
                 </div>
                 <div>
                     <br></br>
-                    {result && <div> Your result is {result} </div>}
+                    {result && <div> You put {result} in the box. </div>}
+                    <br></br>
                 </div>
                 </Container>
         </React.Fragment>

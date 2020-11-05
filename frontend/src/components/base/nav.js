@@ -1,4 +1,4 @@
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 
 function BaseNav() {
@@ -15,8 +15,14 @@ function BaseNav() {
         </Navbar.Brand>
         <Nav className="mr-auto">
             <Nav.Link href="#home">Home</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/mnist">Mnsit</NavDropdown.Item>
+              <NavDropdown.Item >Another action</NavDropdown.Item>
+              <NavDropdown.Item >Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item >Separated link</NavDropdown.Item>
+            </NavDropdown>
             <Nav.Link as={Link} to="/mnist">Mnsit</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
