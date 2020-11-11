@@ -1,19 +1,21 @@
 {
-    "name": "datasets",
-    "version": "1.0.0",
-    "main": "index.js",
-    "repository": "",
-    "author": "Chien-Chou Wu",
-    "license": "MIT",
-    "private": true,
-    "engines": {
-      "node": "12.19.0"
-    },
-    "scripts": {
-      "heroku-prebuild": "NODE_ENV=production cd frontend/ && yarn install && yarn build && cd .."
-    },
-    "cacheDirectories": [
-      "frontend/node_modules"
-    ]
+  "name": "datasets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "",
+  "author": "Chien-Chou Wu",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": "12.19.0"
+  },
+  "scripts": {
+    "heroku-prebuild": "NODE_ENV=production cd frontend/ && yarn install && yarn build && cd .."
+  },
+  "cacheDirectories": [
+    "frontend/node_modules"
+  ],
+  "dependencies": {
+    "styled-components": "^5.2.1"
+  }
 }
-  
