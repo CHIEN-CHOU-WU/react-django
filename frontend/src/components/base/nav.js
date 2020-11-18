@@ -28,7 +28,7 @@ function BaseNav() {
               <NavDropdown.Divider />
               <NavDropdown.Item >Separated link</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} to="/mnist">Mnsit</Nav.Link>
+            <Nav.Link as={Link} to="/stock">Stock</Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />

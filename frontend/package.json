@@ -16,7 +16,8 @@
     "react-scripts": "4.0.0",
     "react-sketch": "^0.5.1",
     "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "prettier": "2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

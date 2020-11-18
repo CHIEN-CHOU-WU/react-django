@@ -23,9 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # have it as the last urlpattern for BrowserHistory urls to work
     path('', FrontendAppView.as_view()),
-    re_path(r'^(?:.*)/?$', FrontendAppView.as_view()),
     path('api/', include('digits.api.urls')),
     path('api-auth/', include('rest_framework.urls')),
+    #re_path(r'^(?:.*)/?$', FrontendAppView.as_view()),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

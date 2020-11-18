@@ -1,9 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-import BaseNav from './components/base/nav';
-import Mnist  from './components/mnist';
-import Tetris from './components/tetris/Tetris';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import logo from "./logo.svg";
+import "./App.css";
+import BaseNav from "./components/base/nav";
+import Mnist from "./components/mnsist/mnist";
+import Tetris from "./components/tetris/Tetris";
+import TdAmeritrade from "./components/td/td";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// always return JSX
+// return single element
+// rfc
 
 function App() {
   return (
@@ -13,6 +18,7 @@ function App() {
         <Switch>
           <Route path="/mnist" exact component={Mnist} />
           <Route path="/tetris" exact component={Tetris} />
+          <Route path="/stock" exact component={TdAmeritrade} />
         </Switch>
       </div>
     </Router>

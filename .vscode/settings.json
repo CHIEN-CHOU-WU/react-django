@@ -1,0 +1,20 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "python.terminal.activateEnvironment": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "python.pythonPath": "venv\\Scripts\\python.exe",
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.renderIndentGuides": true,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true,
+    "editor.tabSize": 4
+  }
+}
