@@ -13,11 +13,16 @@ code {
     monospace;
 }
 */
-body {
+body html {
   margin: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
 }
 
 @font-face {
-  font-family: 'Pixel';
-  src: url('./font/Pixel-LCD-7.woff') format('woff');
+  font-family: "Pixel";
+  src: url("./font/Pixel-LCD-7.woff") format("woff");
 }

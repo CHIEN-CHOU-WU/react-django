@@ -1,8 +1,9 @@
+import os
 import requests
 import urllib
 import time
 from splinter import Browser
-from config import config
+from configparser import ConfigParser
 
 
 # # define the location of the chrome driver
@@ -23,6 +24,16 @@ from config import config
 
 # # go to pur url
 # browser.visit(built_url)
+
+path = os.path.abspath("..")+str("\\react-django\stockprediction\config.ini")
+config = ConfigParser()
+print(path)
+config.read(path)
+
+CLIENT_ID = config.get('client', 'client_id')
+REDIRECT_URI = config.get('client', 'redirect_uri')
+CREDENTIALS_PATH = config.get('client', 'client_id')
+ACCOUNT_NUMBER = config.get('client', 'client_id')
 
 
 # The daily prices endpoints
@@ -60,7 +71,7 @@ payload = {'apikey': 'NPJBMUYTIITL7A46GN6GNB2FXVEPMMQL'}
 
 # make a request
 content = requests.get(url=endpoint, params=payload)
-# print(content.url)
+print(content.url)
 
 # convert it to dictionary
 data = content.json()

@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 1em;
+  text-align: center;
+  background-color: cornflowerblue;
+}
+
+.grid-1 {
+  background-color: bisque;
+}
+
+.grid-2 {
+  background-color: aqua;
+}
