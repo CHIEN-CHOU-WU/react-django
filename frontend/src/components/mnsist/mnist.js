@@ -1,13 +1,13 @@
 import React, {
-  Component,
+  //Component,
   useRef,
   useEffect,
-  nativeEvent,
+  //nativeEvent,
   useState,
 } from "react";
 import "./mnist.css";
-import { saveAs } from "file-saver";
-import { Button, Container, Row, Col, Alert } from "react-bootstrap";
+//import { saveAs } from "file-saver";
+import { Button, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 
 function Mnist() {
@@ -88,8 +88,6 @@ function Mnist() {
     contextRef.current = context;
     setSend(false);
     setResult(false);
-    const canv = canvasRef.current.toDataURL();
-    const canv_url = canvasRef.current.baseURI;
     //saveAs(canv, 'digit.jpg')
   };
 

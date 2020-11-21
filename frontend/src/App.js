@@ -1,5 +1,6 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
+import Home from "./components/base/home";
 import BaseNav from "./components/base/nav";
 import Mnist from "./components/mnsist/mnist";
 import Tetris from "./components/tetris/Tetris";
@@ -10,6 +11,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // always return JSX
 // return single element
 // rfc
+// rafce
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
       <div className="App">
         <BaseNav />
         <Switch>
+          <Route path="/" exact component={Home} />
           <Route path="/mnist" exact component={Mnist} />
           <Route path="/tetris" exact component={Tetris} />
           <Route path="/stock" exact component={TdAmeritrade} />

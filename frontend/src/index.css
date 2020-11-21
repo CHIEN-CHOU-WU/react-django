@@ -13,14 +13,6 @@ code {
     monospace;
 }
 */
-body html {
-  margin: 0;
-  height: 100%;
-}
-
-#root {
-  height: 100%;
-}
 
 @font-face {
   font-family: "Pixel";
