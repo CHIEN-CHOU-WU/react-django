@@ -1,5 +1,4 @@
 import React from "react";
-import "./basic_tutorial.css";
 import { Button } from "react-bootstrap";
 import { booksName } from "./books";
 

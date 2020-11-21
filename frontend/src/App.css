@@ -1,6 +1,28 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+hr {
+  background-color: #f0ffff;
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+
 .App {
-  background-color: #e6e6ff;
   min-height: 100vh;
+  background-image: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
 }
 
 .App-logo {
@@ -38,6 +60,73 @@
   }
 }
 
-.color-nav {
-  background-color: #1e4574;
+.nav-link {
+  font-weight: bold;
+  font-family: poppins-semibold, poppins, sans-serif;
+  position: relative;
+  left: -50px;
+  text-align: center;
+  top: 30px;
+}
+
+.nav-brand {
+  /* transform: translateX(-50%); */
+  font-weight: bold;
+  font-size: 20%;
+  font-family: "Nerko One", cursive;
+  position: relative;
+  top: 60px;
+}
+
+.nav {
+  padding-top: 300px;
+}
+
+.nav-toggle {
+  position: relative;
+  top: 60px;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 1em;
+  text-align: center;
+  background-color: cornflowerblue;
+}
+
+.grid-1 {
+  background-color: bisque;
+}
+
+.grid-2 {
+  background-color: aqua;
+}
+
+.block {
+  display: flex;
+}
+
+.split {
+  /* height: 100%; */
+  width: 50%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 1%;
+  /* padding-top: 20px; */
+}
+
+.left {
+  left: 0;
+  background-color: burlywood;
+  padding-left: 10px;
+}
+
+.right {
+  right: 0;
+  background-color: honeydew;
+  padding-left: 10px;
 }
