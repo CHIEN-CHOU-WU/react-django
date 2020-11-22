@@ -45,6 +45,7 @@
   },
   "proxy": "http://localhost:8000",
   "devDependencies": {
-    "django-react-loader": "^0.1.7"
+    "django-react-loader": "^0.1.7",
+    "npm-watch": "^0.7.0"
   }
 }

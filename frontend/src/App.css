@@ -17,7 +17,7 @@ hr {
   background-color: #f0ffff;
   width: 70%;
   text-align: center;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .App {
@@ -72,15 +72,15 @@ hr {
 .nav-brand {
   /* transform: translateX(-50%); */
   font-weight: bold;
-  font-size: 20%;
+  font-size: 35px;
   font-family: "Nerko One", cursive;
   position: relative;
   top: 60px;
 }
 
-.nav {
+/* .nav {
   padding-top: 300px;
-}
+} */
 
 .nav-toggle {
   position: relative;
