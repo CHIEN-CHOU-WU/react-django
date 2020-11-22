@@ -1,4 +1,6 @@
 import React from "react";
+import shin from "../../img/shin.gif";
+import Shinchan from "../../img/Shinchan.gif";
 
 function Home() {
   return (
@@ -7,18 +9,11 @@ function Home() {
       <div className="container">
         <h1>高雄 Zoe 手工香皂</h1>
 
-        <iframe
-          src="http://www2.nkfust.edu.tw/~u0551103/buttons/6.gif"
-          width="480"
-          height="378"
-          frameBorder="0"
-        ></iframe>
-        <iframe
-          src="http://www2.nkfust.edu.tw/~u0551103/buttons/4.gif"
-          width="480"
-          height="378"
-          frameBorder="0"
-        ></iframe>
+        <img src={shin} top="0" height="200px"></img>
+        <img src={Shinchan} height="200px"></img>
+        <br />
+        <br />
+        <br />
       </div>
     </React.Fragment>
   );

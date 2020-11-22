@@ -16,7 +16,8 @@ function BaseNav() {
         collapseOnSelect
         expand="lg"
         variant="light"
-        className="justify-content-center nav"
+        className="justify-content-center navbar"
+        sticky="top"
       >
         <Navbar.Brand href="/" className="nav-brand">
           <img

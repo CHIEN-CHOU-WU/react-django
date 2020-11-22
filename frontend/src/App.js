@@ -19,16 +19,16 @@ function App() {
     <Router>
       <div className="App">
         <BaseNav />
-        <br />
-        <hr />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/mnist" exact component={Mnist} />
-          <Route path="/tetris" exact component={Tetris} />
-          <Route path="/stock" exact component={TdAmeritrade} />
-          <Route path="/basictutorial" exact component={Basic} />
-          <Route path="/hooktutorial" exact component={Hook_tutorial} />
-        </Switch>
+        <div className="body-container">
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/mnist" exact component={Mnist} />
+            <Route path="/tetris" exact component={Tetris} />
+            <Route path="/stock" exact component={TdAmeritrade} />
+            <Route path="/basictutorial" exact component={Basic} />
+            <Route path="/hooktutorial" exact component={Hook_tutorial} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );
